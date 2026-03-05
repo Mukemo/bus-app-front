@@ -1,0 +1,33 @@
+.menu {
+  display: flex;
+  height: 100vh;
+}
+
+.active {
+  background-color: #fff;
+  border-left: 4px solid #1976d2;
+}
+.menu nav {
+  width: 90px;
+  font-size: 13px;
+  background-color: #1976d2;
+  padding: 20px 0px 20px 20px;
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px;
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  align-items: center;
+  align-content: center;
+  ul li {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+}

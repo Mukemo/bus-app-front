@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <div>
+      <input type="text" placeholder="Search routes..." />
+      <div>
+        <label>2023-01-24</label>
+        <label>2023-01-31</label>
+      </div>
+      <div>
+        <ul>
+          @for (item of tabs; track item) {
+          <li (click)="selectTab(item.id)">{{ item.label }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    @switch (selectedTab) { @case ('today') {
+    <div>
+      <h1>Today</h1>
+      <app-table [columns]="columns" [data]="data"></app-table>
+    </div>
+
+    } @case ('scheduled') {
+    <div>
+      <h1>scheduled</h1>
+      <app-table [columns]="columns" [data]="data"></app-table>
+    </div>
+    } @case ('history') {
+    <div>
+      <h1>History</h1>
+      <app-table [columns]="columns" [data]="data"></app-table>
+    </div>
+    } @case ('draft') {
+    <div>
+      <h1>Draft</h1>
+      <app-table [columns]="columns" [data]="data"></app-table>
+    </div>
+    } }
+  </div>
+</div>

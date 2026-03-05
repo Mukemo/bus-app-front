@@ -1,0 +1,15 @@
+<h2>Bus details</h2>
+
+<!-- <div>{{ bus$ | async | json }}</div> -->
+
+<ng-container *ngIf="bus$ | async as bus">
+  <div>
+    <h3>Bus ID: {{ bus.matriculation }}</h3>
+    <p>Capacity: {{ bus.capacity }}</p>
+  </div>
+  <div class="seats">
+    <div *ngFor="let seat of bus.seatDto" class="chair">
+      <app-seat [label]="seat.label"> </app-seat>
+    </div>
+  </div>
+</ng-container>

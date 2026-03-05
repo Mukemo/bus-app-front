@@ -1,0 +1,27 @@
+<div>
+  <h2>Bus List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Bus ID</th>
+        <th>Matriculation</th>
+        <th>Capacity</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (bus of buses$ | async; track $index) {
+      <tr>
+        <td>{{ bus.id }}</td>
+        <td>{{ bus.matriculation }}</td>
+        <td>{{ bus.capacity }}</td>
+        <td>{{ bus.busStatus }}</td>
+        <td>
+          <a [routerLink]="['/bus/detail', bus.id]">Voir</a>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

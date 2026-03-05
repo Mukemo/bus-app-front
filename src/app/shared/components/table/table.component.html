@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      @for (col of columns(); track col) {
+      <th (click)="sort(col)">
+        {{ col.headerText }}
+        @if (col.sortDirection === 'asc') {'>'} @if (col.sortDirection === 'desc') {'<'} @if
+        (col.sortDirection === '') {'<>'}
+      </th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @if(data().length >= 0) { @for(item of sortedData(); track item) {
+    <tr>
+      @for(col of columns(); track col) { @if (col.columnType !== 'action' ) {
+      <td>{{ col.field ? item[col.field] : '' }}</td>
+      } @else {
+      <td>
+        @for(action of col.actions; track action) {
+        <button (click)="actionClick(action, item)">{{ action.label }}</button>
+        }
+      </td>
+      } }
+    </tr>
+    } }
+  </tbody>
+</table>

@@ -1,0 +1,92 @@
+.body {
+  .header {
+    display: flex;
+  }
+  .controls {
+    display: flex;
+  }
+  .preview-area {
+    display: flex;
+    .bus-layout {
+      display: flex;
+      .top {
+        display: flex;
+        .bus {
+          width: 830px;
+          height: 100%;
+          .col {
+            display: flex;
+            .row {
+              font-size: 12px;
+              .selected {
+                background-color: #e3f2fd;
+                border: 2px solid #1976d2;
+                border-radius: 6px;
+              }
+            }
+          }
+        }
+        .inc-dec {
+          width: 100%;
+          background-color: gray;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          button {
+            background-color: lightgray;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+          }
+        }
+      }
+      .bottom {
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        button {
+          background-color: lightgray;
+          border: none;
+          color: #fff;
+          border-radius: 5px;
+        }
+      }
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      .legend {
+        width: 25px;
+        height: 25px;
+        border: 1px solid #343;
+        margin-right: 20px;
+      }
+      .seat {
+        background-color: #f9f;
+      }
+      .empty {
+        background-color: darkgray;
+      }
+      .wc {
+        background-color: darkgreen;
+      }
+      .door {
+        background-color: brown;
+      }
+      .driver {
+        background-color: darkblue;
+      }
+      .coffee {
+        background-color: chocolate;
+      }
+    }
+  }
+}
+
+.selected {
+  background-color: #e3f2fd;
+  border: 1px solid #1976d2;
+  border-radius: 6px;
+}

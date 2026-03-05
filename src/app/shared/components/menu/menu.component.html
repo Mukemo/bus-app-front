@@ -1,0 +1,59 @@
+<div class="menu">
+  <nav>
+    <div>
+      <h1>Book</h1>
+    </div>
+    <ul>
+      <li
+        *ngFor="let tab of tabs"
+        (click)="selectTab(tab.id)"
+        [class.active]="tab.id === activeTabId"
+      >
+        {{ tab.label }}
+      </li>
+    </ul>
+  </nav>
+  <div class="content">
+    @switch(activeTabId) { @case('dashboard'){
+    <div>
+      <ul>
+        <li><a routerLink="/dashboard">Dashboard</a></li>
+      </ul>
+    </div>
+    } @case('buses') {
+    <div>
+      <h3>Bus</h3>
+      <ul>
+        <li><a routerLink="/bus/list">Buses</a></li>
+        <li><a routerLink="/bus/routes">Routes</a></li>
+      </ul>
+    </div>
+    } @case('hotels') {
+    <div>
+      <h3>Hotels</h3>
+      <ul>
+        <li><a routerLink="/hotels/list">Hotels</a></li>
+        <li><a routerLink="/hotels/create">Create hotel</a></li>
+      </ul>
+    </div>
+    } @case('taxi') {
+    <div>
+      <h3>Taxi</h3>
+      <ul>
+        <li><a routerLink="/taxi/list">Taxis</a></li>
+        <li><a routerLink="/taxi/create">Create taxi</a></li>
+      </ul>
+    </div>
+    } @default{
+    <div>
+      <h3>Configurations</h3>
+      <ul>
+        <li><a>People</a></li>
+        <li><a>Buses</a></li>
+        <li><a>Hotels</a></li>
+        <li><a>Taxis</a></li>
+      </ul>
+    </div>
+    } }
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<h2>Bus Creation</h2>
+
+<form [formGroup]="busForm" (ngSubmit)="onSubmit()">
+  <div>
+    <button type="submit">Save</button>
+    <div>
+      <div class="header">
+        <h3>Create a New Bus</h3>
+      </div>
+      <div class="body">
+        <div class="controls">
+          <div>
+            <label for="Columns">
+              Columns{{ busForm.controls['cols'].value }}
+              <select formControlName="cols">
+                <option [ngValue]="1">1</option>
+                <option [ngValue]="2">2</option>
+                <option [ngValue]="3">3</option>
+                <option [ngValue]="4">4</option>
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="6">6</option>
+                <option [ngValue]="7">7</option>
+                <option [ngValue]="8">8</option>
+                <option [ngValue]="9">9</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="11">11</option>
+                <option [ngValue]="12">12</option>
+                <option [ngValue]="13">13</option>
+                <option [ngValue]="14">14</option>
+                <option [ngValue]="15">15</option>
+                <option [ngValue]="16">16</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label for="Rows">
+              Rows{{ busForm.controls['rows'].value }}
+              <select formControlName="rows">
+                <option [ngValue]="1">1</option>
+                <option [ngValue]="2">2</option>
+                <option [ngValue]="3">3</option>
+                <option [ngValue]="4">4</option>
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="6">6</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label for="Floors">
+              Floors{{ busForm.controls['floors'].value }}
+              <select formControlName="floors">
+                <option [ngValue]="1">1</option>
+                <option [ngValue]="2">2</option>
+                <option [ngValue]="3">3</option>
+                <option [ngValue]="4">4</option>
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="6">6</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <button (click)="clear()">Clear</button>
+          </div>
+        </div>
+        <div class="preview-area">
+          <div class="bus-layout">
+            <div class="top">
+              <div class="bus">
+                <div *ngFor="let seat of rows; let r = index" class="col" (click)="onSelectRow(r)">
+                  <!-- <div
+                    *ngFor="let col of cols; let c = index"
+                    class="row"
+                    [class.selected]="isSelected(r, c)"
+                    (click)="toggle(r, c)"
+                  > -->
+                  <!-- <div class="seat-number">A{{ r }}{{ c }}</div> -->
+                  <app-seat
+                    [style]="{ padding: '10px' }"
+                    *ngFor="let col of cols; let c = index"
+                    class="row"
+                    [class.selected]="isSelected(r, c)"
+                    (click)="toggle(r, c)"
+                    [label]="'A' + r + '' + c"
+                  >
+                  </app-seat>
+                  <!-- </div> -->
+                </div>
+                <div class="inc-dec">
+                  <button class="inc" (click)="increment('rows', 6)">+</button>
+                  <button class="dec" (click)="decrement('rows', 1)">-</button>
+                </div>
+              </div>
+              <div class="bottom">
+                <button class="inc" (click)="increment('cols', 16)">+</button>
+                <button class="dec" (click)="decrement('cols', 1)">-</button>
+              </div>
+            </div>
+            <div>
+              <div class="legend-item">
+                <div class="legend empty"></div>
+                <span>Empty</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend seat"></div>
+                <span>Seat</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend driver"></div>
+                <span>Driver</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend door"></div>
+                <span>Door</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend wc"></div>
+                <span>W/C</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend coffee"></div>
+                <span>Tea/Coffee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
